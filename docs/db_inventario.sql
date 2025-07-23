@@ -18,11 +18,15 @@ create table usuario (
 	data_cadastro_usuario date not null
 )engine=innodb auto_increment = 1000 CHARSET=utf8;
 
-insert into usuario 
-values (default, 'Administrador', 'Administrador', 'adm@email.com', md5('12345678'),
-'1', '724.961.787-78', '(21) 3333-4444', '(21) 99999-8888', 'M', '1', 'avatar-masculino.png', now()),
-(default, 'Caio', 'Santos', 'caio@email.com', md5('12345678'), 
-'1', '910.628.340-38', '(21) 3333-4444', '(21) 99999-8888', 'M', '1', 'avatar-masculino.png', now());
+INSERT INTO usuario (
+    id_usuario, nome_usuario, sobrenome_usuario, email_usuario, senha_usuario,
+    status_usuario, cpf_usuario, telefone_usuario, celular_usuario, sexo_usuario,
+    nivel_usuario, avatar_usuario, data_cadastro_usuario
+) VALUES 
+(NULL, 'Administrador', 'Administrador', 'adm@email.com', MD5('12345678'),
+'1', '724.961.787-78', '(21) 3333-4444', '(21) 99999-8888', 'M', '1', 'avatar-masculino.png', NOW()),
+(NULL, 'Caio', 'Santos', 'caio@email.com', MD5('12345678'), 
+'1', '910.628.340-38', '(21) 3333-4444', '(21) 99999-8888', 'M', '1', 'avatar-masculino.png', NOW());
 
 create table bem (
 	id_bem int(11) primary key auto_increment,
