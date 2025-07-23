@@ -114,21 +114,19 @@ function validaCPF($cpf = null) {
 		return false;
     // Calcula os digitos verificadores para verificar se o
     // CPF é válido
-	} else {
-
-		for ($t = 9; $t < 11; $t++) {
-
-			for ($d = 0, $c = 0; $c < $t; $c++) {
-				$d += $cpf{$c} * (($t + 1) - $c);
-			}
-			$d = ((10 * $d) % 11) % 10;
-			if ($cpf{$c} != $d) {
-				return false;
-			}
-		}
-
-		return true;
-	}
+    } else {
+    for ($t = 9; $t < 11; $t++) {
+        $sum = 0;
+        for ($i = 0; $i < $t; $i++) {
+            $sum += $cpf[$i] * (($t + 1) - $i);
+        }
+        $checkDigit = ((10 * $sum) % 11) % 10;
+        if ($cpf[$t] != $checkDigit) {
+            return false;
+        }
+    }
+    	return true;
+    }
 }
 
 function inserirUsuario($dados) {
